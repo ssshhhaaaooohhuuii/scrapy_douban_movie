@@ -7,8 +7,21 @@
 
 import scrapy
 
+from scrapy.item import Field
 
-class ScrapyDoubanMovieItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+
+class Movie(scrapy.Item):
+
+    """ Movie item"""
+
+    url = scrapy.Field()
+    title = scrapy.Field()
+    director = scrapy.Field()
+    writer = scrapy.Field()
+    performer = scrapy.Field()
+    m_type = scrapy.Field()
+    country = scrapy.Field()
+    language = scrapy.Field()
+    release_date = scrapy.Field()
+    film_length = scrapy.Field()
+    intro = scrapy.Field()
