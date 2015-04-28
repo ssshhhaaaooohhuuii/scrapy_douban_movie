@@ -13,5 +13,14 @@ BOT_NAME = 'scrapy_douban_movie'
 SPIDER_MODULES = ['scrapy_douban_movie.spiders']
 NEWSPIDER_MODULE = 'scrapy_douban_movie.spiders'
 
+DOWNLOADER_MIDDLEWARES = {
+    'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': 110,
+    'scrapy_douban_movie.proxymw.ProxyMiddleware': 100,
+}
+
+DOWNLOAD_TIMEOUT = 10
+
+CONCURRENT_REQUESTS = 50
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'scrapy_douban_movie (+http://www.yourdomain.com)'
