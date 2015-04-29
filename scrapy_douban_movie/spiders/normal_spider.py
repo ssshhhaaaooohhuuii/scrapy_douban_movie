@@ -24,7 +24,7 @@ class Spider(scrapy.Spider):
         """ parse """
         cates = response.xpath(
             self.RULES["cates"]).extract()
-        for url in cates:
+        for url in cates[:10]:
             real_url = url[:url.rindex("/")] + "/movie"
             yield Request(real_url, self.parse_cate_page)
 
@@ -32,13 +32,13 @@ class Spider(scrapy.Spider):
         """ parse cate page """
         movie_list = response.xpath(
             self.RULES["movie_list"]).extract()
-        for url in movie_list:
+        for url in movie_list[:10]:
             yield Request(url, self.parse_detail)
 
     def parse_detail(self, response):
         """ parse detail """
         movie = Movie()
-        movie["title"] = title = response \
-            .xpath(self.RULES["title"]).extract()[0]
+        movie["title"] = response.xpath(
+            self.RULES["title"]).extract()[0]
         movie["url"] = response.url
         return movie
