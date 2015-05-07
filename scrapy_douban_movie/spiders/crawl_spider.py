@@ -14,9 +14,9 @@ class Spider(CrawlSpider):
     start_urls = ["http://movie.douban.com/tag/"]
 
     rules = (
-        Rule(LinkExtractor(allow=('.*/tag/.*/?focus=movie'))),
-        Rule(LinkExtractor(allow=('.*movie&type=tag_more&name=.*&mod=movie'))),
-        Rule(LinkExtractor(allow=('.*object_id=.*&type=tag&object_kind=.*')),
+        Rule(LinkExtractor(allow=('.tag/.*/?focus=movie'))),
+        Rule(LinkExtractor(allow=('type=tag_more&amp;name=.*&amp;focus=movie&amp;mod=movie'))),
+        Rule(LinkExtractor(allow=('object_id=\d+&amp;type=tag&amp;object_kind=\d+')),
              callback="parse_detail")
     )
 
