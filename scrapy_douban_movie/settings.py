@@ -20,9 +20,9 @@ DOWNLOADER_MIDDLEWARES = {
 
 DOWNLOAD_TIMEOUT = 5
 
-CONCURRENT_REQUESTS = 100
+CONCURRENT_REQUESTS = 50
 
-CONCURRENT_REQUESTS_PER_DOMAIN = 10
+CONCURRENT_REQUESTS_PER_DOMAIN = 30
 
 RETRY_TIMES = 7
 
@@ -33,6 +33,3 @@ USER_AGENT = (
     "AppleWebKit/537.36 (KHTML, like Gecko)"
     "Chrome/39.0.2171.71 Safari/537.36"
 )
-
-# Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'scrapy_douban_movie (+http://www.yourdomain.com)'
